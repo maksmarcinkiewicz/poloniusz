@@ -1,0 +1,12 @@
+{
+    "app_title": "Title",
+    "menu_1": "News",
+    "menu_2": "Projects and donations",
+    "menu_3": "About us",
+    "menu_4": "Payments",
+    "menu_5": "Forms",
+    "menu_6": "Contact",
+    "sign_child": "sign child",
+    "welcome_to_react": "Welcome to React and react-i18next"
+    
+}
