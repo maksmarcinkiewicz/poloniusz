@@ -4,23 +4,22 @@ import heroAnimation from "../assets/hero-lottie.json";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center p-4">
-      <div className="md:w-1/3 md:flex md:justify-center md:items-center flex-col md:mt-44">
+    <div className="">
+      <div className="">
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-justify">
-            Discover new product and best possibilities
+          <h2 className="">
+            Discover the Best of Polish Language and Culture at Poloniusz!
           </h2>
-          <p className="text-md text-justify md:text-xl break-words	">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus earum culpa, modi, voluptas facilis eaque quaerat
-            veniam quisquam quia rem nulla. Voluptate ducimus nostrum facilis
-            reprehenderit omnis sapiente? Aliquid, culpa? Lorem ipsum, dolor sit
-            amet consectetur adipisicing elit. Aut, nobis ratione quisquam,
-            ullam quae neque eligendi itaque placeat porro odio, possimus
-            assumenda. Obcaecati, eos vel? Blanditiis similique sunt error at.
+          <p className="">
+            Welcome to Poloniusz, the Polish Weekend School for Kids in
+            Edinburgh. Our experienced teachers provide engaging language and
+            cultural education through a comprehensive curriculum of
+            instruction, music, dance, and traditional crafts. Join our warm and
+            supportive community where learning a new language and culture is
+            fun and exciting for students of all levels.
           </p>
           <button className="btn my-4">Sign child</button>
-          <hr className="hidden md:block border-1 border-black"></hr>
+
           <div className="hidden md:block">
             <div className="flex flex-row items-start md:gap-32 md:mt-8">
               <div>

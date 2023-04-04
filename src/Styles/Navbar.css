@@ -65,6 +65,16 @@ nav {
 	header .nav-btn {
 		visibility: visible;
 		opacity: 1;
+		--buttonHeight: 32px;
+    display: inline-flex;
+    align-items: center;
+    height: var(--buttonHeight);
+    padding: 0 calc(var(--buttonHeight)/2);
+    border-radius: calc(var(--buttonHeight)/2);
+    background-color: var(--buttonColor);
+    color: var(--knockoutColor);
+    transition: var(--hoverTransition);
+    transition-property: background-color,opacity;
 	}
 
 	header nav {

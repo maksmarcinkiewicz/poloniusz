@@ -1,16 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { AiFillCaretDown } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import React from "react";
 import "../Styles/Navbar.css";
 import logo from "../assets/logobadquality.jpg";
 import plflag from "../assets/republic-of-poland.png";
 import { useTranslation } from "react-i18next";
 import ukflag from "../assets/united-kingdom.png";
-import AboutUs from "./AboutUs";
-import menu from "../assets/menu.png";
 import i18n from "i18next";
 import cookies from "js-cookie";
-import { current } from "tailwindcss/colors";
 import { Outlet, Link } from "react-router-dom";
 
 function Navbar() {
@@ -18,109 +14,150 @@ function Navbar() {
   const [currentLanguage, setCurrentLanguage] = useState("pl");
 
   const { t } = useTranslation();
-  const navRef = useRef();
-  const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
-  };
-  const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  const toggleDropdownFunc = () => {
-    setToggleDropdown((current) => !current);
-  };
   useEffect(() => {
-    console.log(toggleDropdown);
     document.title = t("app_title");
-  }, [toggleDropdown, currentLanguage, t]);
+  }, [currentLanguage, t]);
 
   return (
-    <div>
-      <header className="flex">
-        <Link to={`home`}>
-          <img src={logo} alt="" className="logo" />
-        </Link>
-        <nav ref={navRef}>
-          <button className="btn btn-outline md:hidden">zapisz dziecko</button>
-          <a href="/#" className="font-poppins font-medium text-lg">
-            {t("menu_1")}
-          </a>
-          <a href="/#" className="font-poppins font-medium text-lg">
-            {t("menu_2")}
-          </a>
-          <div className="dropdown dropdown-hover">
-            <label tabIndex={0} className="">
-              <Link
-                to={`about`}
-                className="flex items-center font-poppins font-medium text-lg"
+    <React.Fragment>
+      <div className="navbar bg-base-100">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                {t("menu_3")}
-                <AiFillCaretDown />
-              </Link>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
             </label>
+
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="font-poppins font-medium text-lg">
-                  Regulamin Szkoły
-                </a>
+                <a>{t("menu_1")}</a>
               </li>
               <li>
-                <a className="font-poppins font-medium text-lg">
-                  Statut Szkoły
+                <a>{t("menu_2")}</a>
+              </li>
+              <li tabIndex={0}>
+                <a className="justify-between">
+                  {t("menu_3")}
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                  </svg>
                 </a>
+                <ul className="p-2">
+                  <li>
+                    <a>Regulamin Szkoły</a>
+                  </li>
+                  <li>
+                    <a>Statut Szkoły</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>{t("menu_4")}</a>
+              </li>
+              <li>
+                <a>{t("menu_5")}</a>
+              </li>
+              <li>
+                <a>{t("menu_6")}</a>
+              </li>
+
+              <li>
+                <div>
+                  <button
+                    onClick={() => {
+                      i18n.changeLanguage("pl");
+                      setCurrentLanguage("pl");
+                    }}
+                    className=""
+                  >
+                    <img src={plflag} alt="" className="w-8 mr-2" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      i18n.changeLanguage("eng");
+                      setCurrentLanguage("en");
+                    }}
+                    className=""
+                  >
+                    <img src={ukflag} alt="" className="w-8" />
+                  </button>
+                </div>
               </li>
             </ul>
           </div>
-
-          <Link to={`payments`} className="font-poppins font-medium text-lg">
-            {t("menu_4")}
-          </Link>
-
-          <Link to={`forms`} className="font-poppins font-medium text-lg">
-            {t("menu_5")}
-          </Link>
-          <Link to={`contact`} className="font-poppins font-medium text-lg">
-            {t("menu_6")}
-          </Link>
-          <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-            <FaTimes className="pl-2" />
-          </button>
-        </nav>
-        <div>
-          {/* {currentLanguage === "pl" ? (
-            <button className="btn btn-outline hidden md:block md:mr-10">
-              {t("sign_child")}
-            </button>
-          ) : (
-            <button className="btn btn-outline hidden md:invisible md:mr-10">
-              {t("sign_child")}
-            </button>
-          )} */}
-          <button
-            onClick={() => {
-              i18n.changeLanguage("pl");
-              setCurrentLanguage("pl");
-            }}
-          >
-            <img src={plflag} alt="" className="w-8 mr-2" />
-          </button>
-          <button
-            onClick={() => {
-              i18n.changeLanguage("eng");
-              setCurrentLanguage("en");
-            }}
-          >
-            <img src={ukflag} alt="" className="w-8" />
-          </button>
-
-          <button className="nav-btn" onClick={showNavbar}>
-            <img src={menu} alt="" className="w-8 ml-5" />
-          </button>
+          <img src={logo} alt="" className="logo hidden lg:block" />
         </div>
-      </header>
+        <img src={logo} alt="" className="logo hidden md:block lg:hidden" />
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <a>{t("menu_1")}</a>
+            </li>
+            <li>
+              <a>{t("menu_2")}</a>
+            </li>
+            <li tabIndex={0}>
+              <a>
+                {t("menu_3")}
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              <ul className="p-2">
+                <li>
+                  <a>Regulamin Szkoły</a>
+                </li>
+                <li>
+                  <a>Statut Szkoły</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a>{t("menu_4")}</a>
+            </li>
+            <li>
+              <a>{t("menu_5")}</a>
+            </li>
+            <li>
+              <a>{t("menu_6")}</a>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end">
+          <img src={logo} alt="" className="logo md:hidden" />
+          <a className="btn hidden md:inline-flex">Sign child</a>
+        </div>
+      </div>
       <Outlet />
-    </div>
+    </React.Fragment>
   );
 }
 
