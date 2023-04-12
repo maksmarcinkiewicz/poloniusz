@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const TestimonialSection = () => {
   // Testimonial data
@@ -22,7 +23,7 @@ const TestimonialSection = () => {
   console.log(testimonials.length);
 
   return (
-    <section className="p-4">
+    <section className="p-4 bg-slate-100">
       <div className="testimonial-container carousel w-full">
         {testimonials.map((testimonial, index) => (
           <div
@@ -39,24 +40,28 @@ const TestimonialSection = () => {
                 {testimonial.name}
               </div>
             </div>
-            <div>
-              <a
+            <div className="flex gap-4">
+              <motion.a
                 href={`#` + (testimonial.id - 1 == 0 ? 1 : testimonial.id - 1)}
-                className="btn btn-circle"
+                className=""
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
               >
                 ❮
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={
                   `#` +
                   (testimonial.id + 1 == testimonials.length + 1
                     ? 2
                     : testimonial.id + 1)
                 }
-                className="btn btn-circle"
+                className=""
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
               >
                 ❯
-              </a>
+              </motion.a>
             </div>
           </div>
         ))}

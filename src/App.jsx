@@ -25,12 +25,7 @@ i18n
   });
 
 function App() {
-  return (
-    <div>
-      {/* <Hero />
-      <Footer /> */}
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;

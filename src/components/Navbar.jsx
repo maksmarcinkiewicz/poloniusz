@@ -11,6 +11,7 @@ import { Outlet, Link } from "react-router-dom";
 import { FcContacts, FcAbout, FcDonate, FcNews } from "react-icons/fc";
 import { FaWpforms } from "react-icons/fa";
 import { MdOutlinePayments } from "react-icons/md";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const currentLanguageCode = cookies.get("i18next") || "en";
@@ -48,12 +49,12 @@ function Navbar() {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <a>
                   <FcNews />
                   {t("menu_1")}
                 </a>
-              </li>
+              </motion.li>
               <li>
                 <a>
                   <FcDonate />
@@ -104,24 +105,26 @@ function Navbar() {
 
               <li>
                 <div>
-                  <button
+                  <motion.button
                     onClick={() => {
                       i18n.changeLanguage("pl");
                       setCurrentLanguage("pl");
                     }}
-                    className=""
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <img src={plflag} alt="" className="w-8 mr-2" />
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     onClick={() => {
                       i18n.changeLanguage("eng");
                       setCurrentLanguage("en");
                     }}
-                    className=""
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <img src={ukflag} alt="" className="w-8" />
-                  </button>
+                  </motion.button>
                 </div>
               </li>
             </ul>
@@ -178,7 +181,13 @@ function Navbar() {
         </div>
         <div className="navbar-end">
           <Link to="/home">
-            <img src={logo} alt="" className="logo md:hidden" />
+            <motion.img
+              src={logo}
+              alt=""
+              className="logo md:hidden"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            />
           </Link>
           <a className="btn hidden md:inline-flex">Sign child</a>
         </div>

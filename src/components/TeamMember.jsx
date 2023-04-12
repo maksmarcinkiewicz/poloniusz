@@ -11,21 +11,25 @@ const TeamMember = ({ name, designation, image, orderNumber }) => {
   let [foo, setFoo] = useState(false);
   let [count, setCount] = useState(0);
   return (
-    <div id={orderNumber} className="flex flex-col p-8 carousel-item ">
+    <div id={orderNumber} className="flex flex-col pt-8 carousel-item ">
       <div className="flex items-center gap-10">
-        <img src={image} alt={name} className="w-1/3 rounded-full" />
+        <img
+          src={image}
+          alt={name}
+          className="w-1/3 rounded-full border-4 border-b-sky-900"
+        />
         <div>
-          <h3 className="team-member__name">{name}</h3>
-          <h4 className="">{designation}</h4>
+          <h3 className="text-xl font-bold">{name}</h3>
+          <h4 className="text-lg">{designation}</h4>
         </div>
       </div>
 
       <MotionConfig transition={{ duration, type: "tween" }}>
-        <div className="flex  flex-col text-black text-justify">
+        <div className="flex flex-col text-justify">
           <div className="w-full max-w-sm pt-8">
             <ResizablePanel>
               {count % 3 === 2 ? (
-                <p className="w-10/12">
+                <p className="w-10/12 text-lg">
                   And something longer. Sed ut perspiciatis unde omnis iste
                   natus error sit voluptatem accusantium doloremque laudantium,
                   totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
@@ -41,7 +45,10 @@ const TeamMember = ({ name, designation, image, orderNumber }) => {
               )}
             </ResizablePanel>
             <div className="mb-8 flex justify-between">
-              <button className="btn" onClick={() => setCount(count + 1)}>
+              <button
+                className="btn btn-outline"
+                onClick={() => setCount(count + 1)}
+              >
                 Read More
               </button>
             </div>

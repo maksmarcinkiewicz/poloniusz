@@ -27,8 +27,8 @@ const teachers = [
 
 const TeamSection = () => {
   return (
-    <section className="team-section">
-      <h2 className="text-3xl font-bold p-8">Our Teachers</h2>
+    <section className="team-section p-8">
+      <h2 className="text-3xl font-bold ">Our Teachers</h2>
       <div className="flex carousel rounded-box">
         {teachers.map((teacher, index) => (
           <TeamMember
@@ -40,14 +40,14 @@ const TeamSection = () => {
           />
         ))}
       </div>
-      <div className="flex w-full p-8 gap-2">
-        <a href="#item1" className="btn btn-xs">
+      <div className="flex w-full  gap-2">
+        <a href="#item1" className="btn btn-outline btn-xs rounded-full">
           1
         </a>
-        <a href="#item2" className="btn btn-xs">
+        <a href="#item2" className="btn btn-outline btn-xs rounded-full">
           2
         </a>
-        <a href="#item3" className="btn btn-xs">
+        <a href="#item3" className="btn btn-outline btn-xs rounded-full">
           3
         </a>
       </div>

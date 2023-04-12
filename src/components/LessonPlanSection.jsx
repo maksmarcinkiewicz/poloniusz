@@ -6,20 +6,22 @@ const LessonPlanSection = () => {
   // Lesson plan data
   const lessonPlanData = [
     {
-      day: "Monday",
-      hours: "8:00 AM - 10:00 AM",
-      subject: "Math",
+      day: "Friday",
+      class: "class 1",
+      group: "Group IV, Group V",
+      hours: "2:00 PM - 5:00 PM",
     },
     {
-      day: "Tuesday",
-      hours: "10:00 AM - 12:00 PM",
-      subject: "Science",
+      day: "Saturday",
+      class: "class 1, class 3",
+      group: "Group IV, Group VI, GCSE Group",
+      hours: "10:00 AM - 1:00 PM",
     },
     // Add more lesson plan data as needed
   ];
 
   return (
-    <section className="p-8">
+    <section className="p-8 bg-slate-100">
       <div className="flex items-center ">
         <h2 className="text-3xl font-bold">Timetable</h2>
         <Lottie animationData={animationData} className="w-1/6" />
