@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import "../Styles/Navbar.css";
-import logo from "../assets/logobadquality.jpg";
+import logo from "../assets/logo-poloniusz-background.jpg";
 import plflag from "../assets/republic-of-poland.png";
 import { useTranslation } from "react-i18next";
 import ukflag from "../assets/united-kingdom.png";
 import i18n from "i18next";
 import cookies from "js-cookie";
 import { Outlet, Link } from "react-router-dom";
+import { FcContacts, FcAbout, FcDonate, FcNews } from "react-icons/fc";
+import { FaWpforms } from "react-icons/fa";
+import { MdOutlinePayments } from "react-icons/md";
 
 function Navbar() {
   const currentLanguageCode = cookies.get("i18next") || "en";
@@ -21,9 +24,9 @@ function Navbar() {
 
   return (
     <React.Fragment>
-      <div className="navbar bg-base-100">
+      <div className="navbar z-10">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,13 +49,20 @@ function Navbar() {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>{t("menu_1")}</a>
+                <a>
+                  <FcNews />
+                  {t("menu_1")}
+                </a>
               </li>
               <li>
-                <a>{t("menu_2")}</a>
+                <a>
+                  <FcDonate />
+                  {t("menu_2")}
+                </a>
               </li>
               <li tabIndex={0}>
-                <a className="justify-between">
+                <a className="">
+                  <FcAbout />
                   {t("menu_3")}
                   <svg
                     className="fill-current"
@@ -64,7 +74,7 @@ function Navbar() {
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                   </svg>
                 </a>
-                <ul className="p-2">
+                <ul className="p-2 shadow bg-base-100 rounded-box w-42">
                   <li>
                     <a>Regulamin Szkoły</a>
                   </li>
@@ -74,13 +84,22 @@ function Navbar() {
                 </ul>
               </li>
               <li>
-                <a>{t("menu_4")}</a>
+                <a>
+                  <MdOutlinePayments />
+                  {t("menu_4")}
+                </a>
               </li>
               <li>
-                <a>{t("menu_5")}</a>
+                <a>
+                  <FaWpforms />
+                  {t("menu_5")}
+                </a>
               </li>
               <li>
-                <a>{t("menu_6")}</a>
+                <a>
+                  <FcContacts />
+                  {t("menu_6")}
+                </a>
               </li>
 
               <li>
@@ -107,7 +126,13 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <img src={logo} alt="" className="logo hidden lg:block" />
+          <Link to="/home">
+            <img
+              src={logo}
+              alt=""
+              className="logo hidden lg:block max-w-[150px]"
+            />
+          </Link>
         </div>
         <img src={logo} alt="" className="logo hidden md:block lg:hidden" />
         <div className="navbar-center hidden lg:flex">
@@ -147,12 +172,14 @@ function Navbar() {
               <a>{t("menu_5")}</a>
             </li>
             <li>
-              <a>{t("menu_6")}</a>
+              <a>{t("menu_6")} </a>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <img src={logo} alt="" className="logo md:hidden" />
+          <Link to="/home">
+            <img src={logo} alt="" className="logo md:hidden" />
+          </Link>
           <a className="btn hidden md:inline-flex">Sign child</a>
         </div>
       </div>

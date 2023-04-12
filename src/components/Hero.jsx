@@ -3,57 +3,48 @@ import Lottie from "lottie-react";
 import heroAnimation from "../assets/hero-lottie.json";
 
 const Hero = () => {
+  const slides = [
+    {
+      title: "Nagłówek 1",
+      description: "Opis 1",
+    },
+    {
+      title: "Nagłówek 2",
+      description: "Opis 2",
+    },
+    {
+      title: "Nagłówek 3",
+      description: "Opis 3",
+    },
+    // Możesz dodać więcej obiektów do tablicy, aby utworzyć więcej slajdów
+  ];
   return (
     <div className="">
       <div className="">
         <div>
-          <h2 className="">
-            Discover the Best of Polish Language and Culture at Poloniusz!
-          </h2>
-          <p className="">
-            Welcome to Poloniusz, the Polish Weekend School for Kids in
-            Edinburgh. Our experienced teachers provide engaging language and
-            cultural education through a comprehensive curriculum of
-            instruction, music, dance, and traditional crafts. Join our warm and
-            supportive community where learning a new language and culture is
-            fun and exciting for students of all levels.
-          </p>
-          <button className="btn my-4">Sign child</button>
-
-          <div className="hidden md:block">
-            <div className="flex flex-row items-start md:gap-32 md:mt-8">
-              <div>
-                <h3 className="text-4xl md:text-5xl font-bold mb-1">42k</h3>
-                <p>Our Active Users</p>
-              </div>
-              <div>
-                <h3 className="text-4xl md:text-5xl font-bold mb-1">42k</h3>
-                <p>Our Active Users</p>
-              </div>
-              <div>
-                <h3 className="text-4xl md:text-5xl font-bold mb-1">42k</h3>
-                <p>Our Active Users</p>
-              </div>
+          <div className="md:hidden">
+            <div className="absolute top-60 -left-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div className="absolute top-30 -right-0 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <Lottie animationData={heroAnimation} className="flex" />
+          </div>
+          <div className="md:flex justify-center">
+            <div className="md:basis-1/2 md:flex md:flex-col md:justify-center md:items-start">
+              <h2 className="font-bold text-2xl text-justify p-8">
+                Discover the Best of Polish Language at Poloniusz!
+              </h2>
+              <p className="text-lg text-justify px-8">
+                Welcome to Poloniusz! Our experienced teachers provide language
+                and cultural education. Join our warmcommunity where learning a
+                new language and culture is fun and exciting for students of all
+                levels.
+              </p>
+              <button className="btn ml-8 mt-4">Sign child</button>
+            </div>
+            <div className="hidden md:block">
+              <Lottie animationData={heroAnimation} className="flex " />
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex mt-8 md:w-1/3">
-        <div className="flex flex-col gap-4 justify-center items-start md:hidden">
-          <div>
-            <h3 className="text-3xl font-bold mb-1">42k</h3>
-            <p>Our Active Users</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold mb-1">42k</h3>
-            <p>Our Active Users</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold mb-1">42k</h3>
-            <p>Our Active Users</p>
-          </div>
-        </div>
-        <Lottie animationData={heroAnimation} className="w-60 md:w-full mb-8" />
       </div>
     </div>
   );
